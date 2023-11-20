@@ -1,0 +1,37 @@
+.header {
+    height: 182px;
+    background: linear-gradient(0deg, rgba(255,240,184,1) 0%, rgba(255,225,120,1) 7%, rgba(255,214,70,1) 20%, rgba(255,206,33,1) 38%, rgba(255,201,13,1) 65%, rgba(255,200,5,1) 100%);
+    img {
+        position: absolute;
+        left: 67px;
+        top: 45px
+    }
+    .cart{
+        position: fixed;
+        right: 0;
+        margin-right: 150px;
+        height: 94px;
+        width: 94px;
+    }
+    h1 {
+        margin-left: 229px;
+        top: 7%;
+        position: absolute;
+    }
+
+    a{
+        font-size: 48px;
+        text-decoration: none;
+        color: red
+    }
+    span {
+        font-size: 58px;
+    }
+    div{
+        position: fixed;
+        right: 0;
+        margin-right: 150px;
+        height: 94px;
+        width: 94px;
+    }
+}
