@@ -1,14 +1,50 @@
 .card {
-    height: 520px;
-    //border: 1px solid red;
-    //background-color: #FFC805;
-    border-left: 1px solid #FFC805;
-    border-right: 1px solid #FFC805;
-    background-color: white;
-    img{
+    //  height: 520px;
+    // min-width: 148px;
+    // border-left: 1px solid #FFC805;
+    // border-right: 1px solid #FFC805;
+    // background-color: white;
+    display: flex;
+    flex-flow: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    width: 250px;
+    margin: 0 44px 20px 10px;
+    img {
         padding: 10px;
         width: 100%;
-        height: 62%;
-         object-fit: cover;
+        height: 44%;
+        object-fit: cover;
+    }
+
+    .text_cart {
+        overflow-wrap: break-word;
+        text-align: center;
+        padding: 5px;
+        font-size: 21px;
+    }
+}
+
+.main {
+    margin-left: 368px;
+    margin-right: 368px;
+    min-height: 1080px;
+}
+
+@media (max-width: 1024px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 480px) {
+
+    .card{
+        flex-flow:row;
+        border-bottom: 1px solid rgb(247, 233, 183);
+        padding-bottom: 10px;
+        img{
+            height: 100px;
+            width: 100px;
+        }
     }
 }

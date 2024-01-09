@@ -50,10 +50,10 @@ let test = (e: React.ChangeEvent<HTMLInputElement>) => {e.target.checked === fal
   },[])
 
   return (
-    <>
-      <div className={css.fil} onClick={() => setPole(!pole)}>Фильтр</div>
-      {pole && <div className={css.option}>{option}</div>}
-    </>
+    <div className={css.fil} >
+      <div className={css.textFil} onClick={() => setPole(!pole)}>Фильтр</div>
+      {pole && <div className={css.option}>{option}</div>} 
+    </div>
   )
 }
 

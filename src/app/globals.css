@@ -49,6 +49,7 @@ address {
   font-style: normal;
 }
 
+
 /* Form */
 
 input, textarea, button, select {
@@ -89,4 +90,10 @@ legend {
 }
 body {
 	background-image: url('./pack-of-images/pizza_fon.jpg');
+
+}
+.main {
+    margin-left: 368px;
+    margin-right: 368px;
+    min-height: 1080px;
 }

@@ -1,20 +1,55 @@
 .form {
     padding: 0 10px 0 10px;
+    
+    
     span {
         font-size: 14px;
         border: 1px solid black;
         margin-right: 10px;
         padding: 5px 10px 5px 10px;
+        
     }
+
     div {
         margin: 10px 0 15px 0;
+        transition: transform 900ms ease-in-out;
     }
+
     button {
         padding: 5px 10px 5px 10px;
         border: 1px solid black;
         font-size: 18px;
+        
+        &:hover {
+            font-size: 20px;
+
+            &:active {
+                font-size: 18px;
+                
+            }
+        }
     }
 }
-.target{
-background-color: gray;
+
+.target {
+    background-color: gray;
+}
+
+@media (max-width: 1024px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 480px) {
+    .form{
+        
+        span{
+            font-size: 10px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        button{
+            
+    display: flex;
+        }
+    }
 }

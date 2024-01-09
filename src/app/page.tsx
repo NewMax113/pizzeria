@@ -16,8 +16,10 @@ export default function test() {
   let [arr, setArr] = useState<ISizePizza[]>([])
   let [fil_category_final, setFil_category_finaly] = useState<IPizza[]>([])
   let [osn, setosn] = useState<IPizza[]>([])
+  let [notification, setNotification] = useState([])
+
   let piz: IPizza[] = [
-    { id: 1, name: 'Один', img: pizza[0], prise: { one: 300, two: 300 + (300 / 100 * 40), three: 300 + (300 / 100 * 80) }, category: ['колбаса', 'грибы',] },
+    { id: 1, name: 'Одиныыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы', img: pizza[0], prise: { one: 300, two: 300 + (300 / 100 * 40), three: 300 + (300 / 100 * 80) }, category: ['колбаса', 'грибы',] },
     { id: 2, name: 'Два', img: pizza[1], prise: { one: 329, two: 329 + (329 / 100 * 40), three: 329 + (329 / 100 * 80) }, category: ['колбаса', 'перец',] },
     { id: 3, name: 'два', img: pizza[2], prise: { one: 359, two: 359 + (359 / 100 * 40), three: 359 + (359 / 100 * 80) }, category: ['колбаса', 'грибы', 'перец',] },
     { id: 4, name: 'один', img: pizza[3], prise: { one: 409, two: 409 + (409 / 100 * 40), three: 409 + (409 / 100 * 80) }, category: ['колбаса', 'грибы'] },
@@ -37,15 +39,15 @@ export default function test() {
       setCopyPizza(piz)
     }
   }
-
   useEffect(() => {
     setCopyPizza(piz)
     setosn(piz)
     setLoading(false)
-    let s: IPizza[] = JSON.parse(localStorage.arr)
+    let s: IPizza[] = window.localStorage.getItem('arr') ? JSON.parse(localStorage.arr) : ''
     if (s.length > 0) {
       setArr(JSON.parse(localStorage.arr))
       console.log('отработал')
+
     }
   }, [])
 
@@ -55,6 +57,7 @@ export default function test() {
 
   useEffect(() => {
     setosn(useUpdate(copyPizza, fil_category_final, 2))
+    console.log(window.scrollY)
   }, [copyPizza, fil_category_final])
 
   useEffect(() => {
@@ -62,14 +65,50 @@ export default function test() {
   }, [arr])
 
 
+  let [scroll, setScroll] = useState(0) //позиция скролла
+  useEffect(() => {
+    const handleOnScroll = () => {
+      setScroll(window.scrollY);
+    };
+    window.addEventListener("scroll", handleOnScroll);
+  }, [])
+
+  if (scroll > 182) {
+    return (
+      <div className={css.fon}>
+        <div className={css.counter2} >
+          {arr.length}
+        </div>
+        <div className={css.formNotif}>{notification.map(x => <div className={css.notification}>Пицца '{x}' Добавлена!</div>)}</div>
+        <div className={css.params}>
+          <Filter category={piz} setFil_category={setFil_category} ></Filter>
+          <Search searchFilter={searchFilter}></Search>
+        </div>
+        {copyPizza.length < 1 && !loading && <div>Ничего не найдено</div>}
+        <div className={css.grid}>
+          
+            <Main setArr={setArr} arr={arr} copyPizza={osn} loading={loading} notification={notification} setNotification={setNotification}></Main>
+          
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={css.fon}>
-      <div>
-        <Filter category={piz} setFil_category={setFil_category}></Filter>
+      <div className={css.counter} >
+        {arr.length}
+      </div>
+      <div className={css.formNotif}>{notification.map(x => <div className={css.notification}>Пицца '{x}' Добавлена!</div>)}</div>
+      <div className={css.params}>
+        <Filter category={piz} setFil_category={setFil_category} ></Filter>
         <Search searchFilter={searchFilter}></Search>
       </div>
+      {copyPizza.length < 1 && !loading && <div>Ничего не найдено</div>}
       <div className={css.grid}>
-        <Main setArr={setArr} arr={arr} copyPizza={osn} loading={loading}></Main>
+        
+        <Main setArr={setArr} arr={arr} copyPizza={osn} loading={loading} notification={notification} setNotification={setNotification}></Main>
+
       </div>
     </div>
   )

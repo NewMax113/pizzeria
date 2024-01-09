@@ -1,0 +1,13 @@
+.foot {
+    height: 100px;
+    background: orange;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .foot{
+        height: 0;
+    }
+    
+}

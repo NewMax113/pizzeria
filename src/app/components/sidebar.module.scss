@@ -1,0 +1,44 @@
+.block {
+    padding: 2.5px 5px;
+    background: black;
+    width: 250px;
+    color: white;
+    .item {
+        display: flex;
+        padding: 5px;
+        justify-content: space-between;
+        width: 200px;
+        cursor: pointer;
+        border-left: 1px solid white;
+        a{
+            color: white;
+        }
+        .name {}
+
+        .btn {
+            cursor: pointer;
+        }
+    }
+
+    .child {
+        background: black;
+        height: auto;
+        overflow: hidden;
+    }
+}
+
+.childFalse {
+    .child {
+        height: 0;
+    }
+}
+
+.blockSidebar {
+    position: fixed;
+    z-index: 5;
+    background: black;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+}
