@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import css from './main.module.scss'
 import './globals.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 const mont = Montserrat({ subsets: ['latin'] })
 

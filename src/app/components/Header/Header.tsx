@@ -3,9 +3,9 @@ import React, { useEffect, useState, useRef } from "react";
 import Link from 'next/link'
 import Image from 'next/image'
 import css from './header.module.scss'
-import basket from '../pack-of-images/basket2.png'
-import icon from '../pack-of-images/head.png'
-import MenuPhone from "./MenuPhone";
+import basket from '../../pack-of-images/basket2.png'
+import icon from '../../pack-of-images/head.png'
+import MenuPhone from "../Sidebar/MenuPhone";
 
 function Header() {
   let test = useRef(null)
@@ -27,9 +27,7 @@ function Header() {
           {open && <MenuPhone></MenuPhone>}
         </div>
         <header className={css.header2}>
-          {/* {scrollEvent} */}
           <Link href='/'><Image src={icon} alt='' height={94} width={94} className={css.icon}></Image></Link>
-          {/* <div className={css.circle}></div> */}
           <nav className={css.navig}>
             <ul className={css.level_one}>
               <li><Link href='/' className={css.level_ones}>Главная</Link></li>
@@ -72,13 +70,7 @@ function Header() {
         {!open ? <div onClick={() => setOpen(!open)} className={css.threeStrips}>☰</div> : <div onClick={() => setOpen(!open)} className={css.threeStrips2}>X</div>}
         {open && <MenuPhone></MenuPhone>}
       </div>
-
-
-
-
-      {/* {scrollEvent} */}
-      <Link href='/'><Image src={icon} alt='' height={94} width={94} className={css.icon}></Image></Link>
-      
+      <Link href='/'><Image src={icon} alt='' height={94} width={94} className={css.icon}></Image></Link> 
       <nav className={css.navig}>
         <ul className={css.level_one}>
           <li><Link href='/' className={css.level_ones}>Главная</Link></li>

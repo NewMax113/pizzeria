@@ -1,9 +1,14 @@
 'use client'
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, FC } from 'react'
 import css from './sidebar.module.scss'
 import Link from 'next/link'
+import {IArr} from '../types/types'
 
-export const Sidebar = ({ item }) => {
+interface ISidebar {
+  item: IArr
+}
+
+export const Sidebar: FC<ISidebar>= ({ item }) => {
   
   console.log(item)
   let [open, setOpen] = useState(false)

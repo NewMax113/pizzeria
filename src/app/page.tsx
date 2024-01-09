@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from "react";
 import Filter from "./components/filter/Filter";
-import Main from "./components/Main";
+import Main from "./components/Main/Main";
 import Search from "./components/search/Search";
 import css from './main.module.scss'
 import pizza from './pack-of-images/arr_piz'
@@ -16,7 +16,7 @@ export default function test() {
   let [arr, setArr] = useState<ISizePizza[]>([])
   let [fil_category_final, setFil_category_finaly] = useState<IPizza[]>([])
   let [osn, setosn] = useState<IPizza[]>([])
-  let [notification, setNotification] = useState([])
+  let [notification, setNotification] = useState<string[]>([])
 
   let piz: IPizza[] = [
     { id: 1, name: 'Одиныыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы', img: pizza[0], prise: { one: 300, two: 300 + (300 / 100 * 40), three: 300 + (300 / 100 * 80) }, category: ['колбаса', 'грибы',] },

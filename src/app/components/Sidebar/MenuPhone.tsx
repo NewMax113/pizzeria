@@ -1,9 +1,13 @@
 import React from 'react'
 import { Sidebar} from "./Sidebar";
 import css from './sidebar.module.scss'
+import {IArr} from '../types/types'
 
 export default function MenuPhone() {
-    let arr = [
+
+
+
+    let arr: IArr[] = [
         {
           name: 'Главная',
           link: '/'

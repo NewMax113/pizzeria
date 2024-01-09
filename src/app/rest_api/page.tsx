@@ -1,12 +1,11 @@
 "use client"
 import React, {useEffect, useState} from 'react'
-import testtt from '../api/api'
 import Link from 'next/link'
-import axios from 'axios'
-import Page from './[id]/page'
+import {IRestApi} from '../components/types/types'
+
 
 async function testtt2() {
-  let test2 = await fetch('https://jsonplaceholder.typicode.com/todos', {
+  let test2: IRestApi[] = await fetch('https://jsonplaceholder.typicode.com/todos', {
     cache: 'force-cache',
   }).then(response => response.json())
   return test2

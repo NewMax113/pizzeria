@@ -9,6 +9,9 @@ interface ICardParams {
   id: IPizza['id']
   arr: ISizePizza[]
   setArr: (str: ISizePizza[]) => void
+  name: string
+  notification: string[]
+  setNotification: (notification: string[]) => void
 }
 
 interface IParamsSize {
@@ -19,13 +22,9 @@ interface IParamsSize {
 
 
 let CardParams: FC<ICardParams> = (props) => {
-  //let [param, setParam] = useState(null)
-  let posititon = useRef()
-  // useEffect(()=> {
-  //   let test = posititon.current.getBoundingClientRect()
-  //   console.log(test)
-  //   setParam(test)
-  // }, [props.arr])
+
+  let posititon = useRef<HTMLHeadingElement>(null)
+
   let [sizePizza, setSizePizza] = useState<IParamsSize>(
     {
       size: [

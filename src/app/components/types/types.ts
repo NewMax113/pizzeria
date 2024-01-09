@@ -12,4 +12,18 @@ export interface IPizza {
     crust: string,
     id: IPizza['id'],
     prise: number | string
+    name: string
+  }
+
+  export interface IRestApi {
+    userId: number,
+    id: number,
+    title: string,
+    completed: boolean
+  }
+
+  export interface IArr {
+    name: string
+    link?: string
+    children?: IArr[]
   }
