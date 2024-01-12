@@ -20,7 +20,6 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-     
       <body className={mont.className}>
         <Header></Header>
         <main  className={css.main}>{children}</main>

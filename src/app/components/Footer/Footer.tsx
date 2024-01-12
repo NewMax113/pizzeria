@@ -4,9 +4,7 @@ import css from './footer.module.scss'
 function Footer() {
 
   return (
-    <footer className={css.foot}>
-
-    </footer>
+    <footer className={css.foot}> </footer>
   )
 }
 

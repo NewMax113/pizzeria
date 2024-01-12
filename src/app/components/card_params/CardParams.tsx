@@ -1,7 +1,6 @@
 'use client'
 import React, { FC, useEffect, useRef, useState } from 'react'
 import css from './pamas.module.scss'
-import Link from 'next/link'
 import { IPizza, ISizePizza } from '../types/types'
 
 interface ICardParams {
@@ -20,9 +19,7 @@ interface IParamsSize {
   crust: boolean,
 }
 
-
 let CardParams: FC<ICardParams> = (props) => {
-
   let posititon = useRef<HTMLHeadingElement>(null)
 
   let [sizePizza, setSizePizza] = useState<IParamsSize>(
@@ -38,19 +35,18 @@ let CardParams: FC<ICardParams> = (props) => {
       sum: 0
     }
   )
+
   return (
     <div className={css.form} ref={posititon}>
       <div>
         <div>
-           Размер:
+          Размер:
         </div>
-       
-
         <span onClick={(e) => setSizePizza({ ...sizePizza, size: [{ one: true, two: false, three: false }] })} className={sizePizza.size[0].one ? css.target : ''}>25</span>
         <span onClick={(e) => setSizePizza({ ...sizePizza, size: [{ one: false, two: true, three: false }] })} className={sizePizza.size[0].two ? css.target : ''}>30</span>
         <span onClick={(e) => setSizePizza({ ...sizePizza, size: [{ one: false, two: false, three: true }] })} className={sizePizza.size[0].three ? css.target : ''}>35</span>
       </div>
-      <div style={{display: 'grid', gridRowGap: '5px'}}>
+      <div style={{ display: 'grid', gridRowGap: '5px' }}>
         <span onClick={(e) => setSizePizza({ ...sizePizza, crust: true })} className={sizePizza.crust ? css.target : ''}>С корочкой</span>
         <span onClick={(e) => setSizePizza({ ...sizePizza, crust: false })} className={!sizePizza.crust ? css.target : ''}>Без корочи</span>
       </div>
@@ -72,8 +68,6 @@ let CardParams: FC<ICardParams> = (props) => {
         {sizePizza.size[0].two ? props.prise.two : ''}
         {sizePizza.size[0].three ? props.prise.three : ''}
       </button>
-
-
     </div >
   )
 }

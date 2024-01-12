@@ -9,15 +9,14 @@ interface ISidebar {
 }
 
 export const Sidebar: FC<ISidebar>= ({ item }) => {
-  
-  console.log(item)
+
   let [open, setOpen] = useState(false)
+  
   if (item.children) {
     return (
       <div className={!open ? `${css.block} ${css.childFalse}` : css.block}>
         <div className={css.item}>
           <div className={css.name}>{item.name}</div>
-          {/* <div className={css.btn} onClick={() => setOpen(!open)}>+</div> */}
           {!open ? <div className={css.btn} onClick={() => setOpen(!open)}>+</div> : <div className={css.btn} onClick={() => setOpen(!open)}>-</div>}
         </div>
         <div className={css.child}>

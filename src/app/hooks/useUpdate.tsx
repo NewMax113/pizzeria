@@ -1,4 +1,4 @@
-import { IPizza, TFilter } from "../components/types/types"
+import { IPizza } from "../components/types/types"
 
 export let useUpdate = (target: any[], piz: IPizza[], version: number) => {
     let z = target.map((y) => piz.filter(x => version == 1 ? x.category.includes(y) : x.id == y.id))

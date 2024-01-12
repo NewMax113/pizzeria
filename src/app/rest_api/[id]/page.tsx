@@ -1,29 +1,26 @@
 'use client'
-import { useRouter } from "next/router"
-import React, {useEffect, useState, FC} from "react"
-import photo from '../../pack-of-images/icon.jpg'
-import {IRestApi} from '../../components/types/types'
+import React, { useEffect, useState, FC } from "react"
+import { IRestApi } from '../../components/types/types'
 
 interface IParams {
-  params: {id: number}
+  params: { id: number }
 }
 
-export default function Page ({params}: IParams) {
+export default function Page({ params }: IParams) {
   let [data, setData] = useState<IRestApi[]>([])
   let id = params.id
   async function ids() {
     let testId = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
-    .then(response => response.json())
+      .then(response => response.json())
     setData([testId])
   }
-  useEffect(()=> {
+  useEffect(() => {
     ids()
   }, [])
-  console.log(data)
+  
   if (data.length < 1) {
     return <div>Загрузка</div>
   } else {
-     return <p>id: {data[0].id}; title: {data[0].title} <a href="/pack-of-images/icon.jpg" target="_blank" download>Скачать</a></p>
+    return <p>id: {data[0].id}; title: {data[0].title} <a href="/pack-of-images/icon.jpg" target="_blank" download>Скачать</a></p>
   }
-   
-  }
+}

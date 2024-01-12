@@ -8,17 +8,16 @@ import icon from '../../pack-of-images/head.png'
 import MenuPhone from "../Sidebar/MenuPhone";
 
 function Header() {
-  let test = useRef(null)
   let [open, setOpen] = useState(false)
   let [scroll, setScroll] = useState(0) //позиция скролла
-  useEffect(() => {
 
+  useEffect(() => {
     const handleOnScroll = () => {
       setScroll(window.scrollY);
     };
     window.addEventListener("scroll", handleOnScroll);
   }, [])
-  // let scrollEvent
+
   if (scroll > 182) {
     return (
       <header className={css.header}>
@@ -31,7 +30,7 @@ function Header() {
           <nav className={css.navig}>
             <ul className={css.level_one}>
               <li><Link href='/' className={css.level_ones}>Главная</Link></li>
-              <li ref={test}><div className={css.level_ones}>Навигация</div>
+              <li><div className={css.level_ones}>Навигация</div>
                 <ul className={css.level_two}>
                   <li><div className={css.level_twos}>Fake</div>
                     <ul className={css.level_three}>
@@ -51,20 +50,13 @@ function Header() {
               </li>
             </ul>
           </nav>
-          {/* <h1 className={css.text}><Link href="/"><span>P</span>izzeria <span>F</span>rancesco</Link></h1> */}
           <Link href='/cart' className={css.cart}><Image src={basket} alt='' height={200} width={200}></Image></Link>
-          {/* <Link href='/rest_api' className={css.cart}>REST API</Link> */}
-
         </header>
       </header>
-
     )
   }
-  //
 
-  //scrollEvent = scroll > 182 && <header className={css.header2}></header>
   return (
-
     <header className={css.header}>
       <div className={css.navigPhone}>
         {!open ? <div onClick={() => setOpen(!open)} className={css.threeStrips}>☰</div> : <div onClick={() => setOpen(!open)} className={css.threeStrips2}>X</div>}
@@ -74,7 +66,7 @@ function Header() {
       <nav className={css.navig}>
         <ul className={css.level_one}>
           <li><Link href='/' className={css.level_ones}>Главная</Link></li>
-          <li ref={test}><div className={css.level_ones}>Навигация</div>
+          <li><div className={css.level_ones}>Навигация</div>
             <ul className={css.level_two}>
               <li><div className={css.level_twos}>Fake</div>
                 <ul className={css.level_three}>
@@ -94,11 +86,7 @@ function Header() {
           </li>
         </ul>
       </nav>
-
-      {/* <h1 className={css.text}><Link href="/"><span>P</span>izzeria <span>F</span>rancesco</Link></h1> */}
       <Link href='/cart' className={css.cart}><Image src={basket} alt='' height={200} width={200}></Image></Link>
-      {/* <Link href='/rest_api' className={css.cart}>REST API</Link> */}
-
     </header>
   )
 }

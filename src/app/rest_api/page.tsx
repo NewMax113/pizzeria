@@ -12,9 +12,8 @@ async function testtt2() {
 }
 
 async function Users  ()  {
-  
   let users = await testtt2()
-  console.log(users)
+
   let user_map = users.map(x=> <div key={x.id}>{x.id} - {x.title} <Link style={{border: '1px solid black'}} href={`/rest_api/${x.id}`}>открыть</Link></div>)
   
   return (
